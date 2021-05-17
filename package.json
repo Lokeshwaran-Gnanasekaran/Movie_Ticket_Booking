@@ -1,0 +1,27 @@
+{
+  "name": "movie_ticket_booking",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lokeshwaran-Gnanasekaran/Movie_Ticket_Booking.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lokeshwaran-Gnanasekaran/Movie_Ticket_Booking/issues"
+  },
+  "homepage": "https://github.com/Lokeshwaran-Gnanasekaran/Movie_Ticket_Booking#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.9",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0"
+  }
+}
