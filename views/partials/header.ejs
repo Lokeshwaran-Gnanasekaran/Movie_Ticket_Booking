@@ -1,45 +1,54 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        
-        <title>Book-A-Doc</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
-        <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    </head>
-    <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<head>
+    <title>BOOKING</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/v2.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light mb-3 border-bottom">
+        <a class="navbar-brand" href="/">BOOKING</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
+           <span class="navbar-toggler-icon"></span>
+        </button>              
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/about">About</a>
-              </li>
-              <li class="nav-item">
-              <a class="nav-link" href="/contact">Contact</a>
-            </li>
-            
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <% if(!currentUser){ %>
-            <li class="nav-item"><a class=" nav-link" href="/register">Signup </a></li>
-            <li class="nav-item"><a class="nav-link" href="/registertheatre">Theatre-Signup </a></li>
-            <li class="nav-item"><a class="nav-link" href="/login">Login </a></li>
-            <%}else{%>
-              <li style="margin-right:10px;color:white"><em>Logged in as <%=currentUser.firstname.toUpperCase()%> <%=currentUser.lastname.toUpperCase()%></em></li>
-            <li><a class="link" href="/logout">Logout<i class="fa fa-sign-in" aria-hidden="true"></i> </a></li>
-            <%}%>
-          </ul>
-          
-          </form>
+            <ul class="navbar-nav ml-auto">
+                <% if(!currentUser){ %>
+                <li class="nav-item mr-3">
+                  <a class="nav-link" href="/login">Login</a>
+                </li>
+                <li class="nav-item mr-3">
+                  <a class="nav-link" href="/register">Sign Up</a>
+                </li>
+                <li class="nav-item mr-3">
+                  <a class="nav-link" href="/theatreregister">Theatre Sign Up</a>
+                </li>
+                <% } else { %>
+                <li class="nav-item">
+                    <a class="nav-link">Signed in as <%= currentUser.username %></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+                <% } %>
+            </ul>
         </div>
-      </nav>
-
+    </nav>
+    <div class="container text-center">
+        <% if(error && error.length >0) { %>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <%= error %>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        <% } else if(success && success.length >0) { %>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <%= success %>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        <% } %>        
+    </div>
+    

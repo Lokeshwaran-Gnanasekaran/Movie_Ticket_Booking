@@ -1,0 +1,29 @@
+<%- include ('partials/header')%>
+<div class="container" style="width: 75%">
+    <div class="row">
+        <div class="col-md-3">
+            <p class="lead">Book</p>
+        </div>
+        <div class="col-md-9">
+            <div class="card">
+                <img src="<%= theatre.img %>" class="card-img-top">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <a href=""><h3 class="card-title"><%= theatre.name %></h3></a>
+                        <h4 class="pull-right"><%=theatre.price %></h4>  
+                    </div> 
+                    <p><em> <%=theatre.genre %></em></p>
+                    <p class="card-text"><%- theatre.desc %></p>
+                </div>
+            </div>
+            <form action="/city/movies/theatre/book/<%=theatre._id%>" method="POST">
+                <p>Availabe seats:<b><%=theatre.avail_seats %></b></p>
+                <input type="number" name="seats" placeholder="Number of seats">
+                <button class="btn btn-success" type="submit">Book and check out</button>
+            </form>
+            
+            </div>
+        </div>
+    </div>
+</div>
+<%- include ('partials/footer')%>

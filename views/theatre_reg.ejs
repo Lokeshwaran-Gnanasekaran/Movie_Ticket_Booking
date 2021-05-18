@@ -1,0 +1,31 @@
+<%- include ('partials/header')%>
+
+<div class="container">
+    <div class="jumbotron">
+        <div class="mr-2 ml-1">
+            <h1>WELCOME TO TICKET BOOKING PORTAL!!!</h1>
+            <p>Add all your theatres to get filled soon...</p>
+            <a href="/theatre_reg/new"><button class="btn btn-info">Add New Theatre</button></a>
+           
+            
+        </div>
+    </div>
+    <div class="row">
+        <% arr.forEach(function(m) { %>    
+        <div class="col-lg-3 col-sm-6 col-12"">
+            <div class="card">
+                <img src="<%= m.img %>" class="card-img-top">
+                <div class="card-body">
+                   <h5 class="card-title text-center"><%= m.name %></h5>
+                   <div class="d-flex justify-content-center">
+                    <p>Total Number of seats:<%=m.no_seats%></p>   
+                    <p>No of seats available:<%=m.avail_seats%></p>
+                   </div>
+                </div>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+</div>
+
+    <%- include ('partials/footer')%>    

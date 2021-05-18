@@ -1,0 +1,35 @@
+<%- include ('partials/header')%>
+<div class="text-center display-3 mb-3" style="font-weight: 400">Fill Details</div>
+<div style="width: 30%" class="mx-auto">
+        <form action="/theatre_reg/new" method="POST">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Theatre name"  name="name"  style="width: 100%">
+            </div>
+            <div class="form-group">  
+                <input type="text" class="form-control" placeholder="Image url" name="img_t">
+            </div>
+            <div class="form-group">  
+                <input class="form-control"  placeholder="Description" name="desc">
+            </div>
+            <div class="form-group">  
+                <input class="form-control"  placeholder="No seats" name="seats">
+            </div>
+            <div class="form-group">  
+                <input class="form-control"  placeholder="Movie Name" name="name_m">
+            </div>
+            <div class="form-group">  
+                <input class="form-control"  placeholder="Movie Genre" name="genre">
+            </div>
+            <div class="form-group">  
+                <input class="form-control"  placeholder="Movie Image" name="img_m">
+            </div>
+            <div class="form-group">  
+                <input class="form-control"  placeholder="City" name="city">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary btn-block">Add</button>
+            </div>
+        </form>
+        
+</div>
+<%- include ('partials/footer')%>

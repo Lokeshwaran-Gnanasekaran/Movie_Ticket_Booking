@@ -1,0 +1,29 @@
+<%- include ('partials/header')%>
+
+<div class="container">
+    <div class="jumbotron">
+        <div class="mr-2 ml-1">
+            <h1>WELCOME TO TICKET BOOKING PORTAL!!!</h1>
+            <p>View  all availabe movies in your favourite theatres by choose your location</p>
+            
+            
+        </div>
+    </div>
+    <div class="row">
+        <% movies.forEach(function(m) { %>    
+        <div class="col-lg-3 col-sm-6 col-12"">
+            <div class="card">
+                <img src="<%= m.img %>" class="card-img-top">
+                <div class="card-body">
+                   <h5 class="card-title text-center"><%= m.name %></h5>
+                   <div class="d-flex justify-content-center">
+                    <a href="/city/movies/<%=city %>/theatre" class="btn btn-primary">Choose Theatre</a>
+                   </div>
+                </div>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+</div>
+
+    <%- include ('partials/footer')%>    

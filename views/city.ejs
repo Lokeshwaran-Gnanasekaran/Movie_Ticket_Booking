@@ -1,0 +1,21 @@
+<%- include ('partials/header')%>
+
+<div class="container">
+    <div class="jumbotron">
+        <div class="mr-2 ml-1">
+            <h1>WELCOME TO TICKET BOOKING PORTAL!!!</h1>
+            <p>View  all availabe movies in your favourite theatres by choose your location</p>
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button"data-toggle="dropdown">Choose the city 
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <% city.forEach(function(c){ %>
+                        <li><a href="/city/movies/<%=c.name %>"><%= c.name %></a></li>
+                   <% }) %>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <%- include ('partials/footer')%>    
