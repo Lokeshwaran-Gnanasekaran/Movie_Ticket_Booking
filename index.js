@@ -5,10 +5,12 @@ var express=require("express"),
     flash=require("connect-flash"),
     passport=require("passport"),
     LocalStrategy=require("passport-local"),
-    session=require("express-session");
+    session=require("express-session"),
+    nodemailer=require("nodemailer");
 
 
 
+const { getMaxListeners } = require("./model/usermodel");
 var User = require("./model/usermodel"),
     City=require("./model/Cites"),
     Movie=require("./model/Movie"),
@@ -170,6 +172,22 @@ app.post("/city/movies/theatre/book/:id",function(req,res){
                  }
                  else{
                      // nodemailer
+                     var transporter=nodemailer.createTransport({
+                         service:"gmail",
+                         auth:{
+                             user:"ng.lokeshwaran21@gmail.com",
+                             pass:"lokesh@2105"
+                         }
+                     });
+                     var info=transporter.sendMail({
+                         from:'ng.lokeshwaran21@gmail.com',
+                         to:req.user.Email,
+                         subject:"Tickets-reg",
+                         text:"Your are booked"+seats+"tickets which costs Rs"+seats*45+"..... Enjoy with your snack!!!"
+                     })
+                     console.log("Message sent: %s", info.messageId);
+                     console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+
                  }
              }
              )
